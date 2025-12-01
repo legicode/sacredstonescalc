@@ -45,7 +45,7 @@ th.levels{
 	width: 92px;
 }
 th.conmov{
-	width: 35px;
+	width: 30px;
 }
 table#main{
 	margin-left: auto; 
@@ -61,4 +61,5 @@ a:link{
 }
 a:visited{
   color: #440066;
+
 }
