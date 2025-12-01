@@ -292,7 +292,7 @@ const promotionGains = new Map([
 	["Pegasus Knight → Wyvern Knight (F)", 	[3, 2, 1, 2, 0, 1, 1, 4, 1]],
 	["Wyvern Rider → Wyvern Knight (M)", 	[3, 1, 2, 3, 0, 0, 1, 0, 1]],
 	["Wyvern Rider → Wyvern Lord (M)",		[4, 2, 2, 0, 0, 2, 0, 1, 1]],
-	["Mage → Mage Knight (M)",				[4, 2, 0, 0, 0, 2, 2, 2, 2]],
+	["Monk → Mage Knight (M)",				[4, 2, 0, 0, 0, 2, 2, 2, 2]],
 	["Mage → Mage Knight (F)",				[3, 2, 1, 0, 0, 2, 2, 3, 2]],
 	["Mage → Sage (M)",						[4, 1, 0, 0, 0, 3, 3, 1, 1]],
 	["Mage → Sage (F)",						[3, 1, 1, 0, 0, 3, 3, 1, 1]],
