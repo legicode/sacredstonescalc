@@ -1,25 +1,25 @@
 body{
 	font-family: sans-serif;
 	font-size: 16px;
-	background-color: #8E7A3D;
+	background-color: #8E733D;
 	color: black;
 }
 table{
 	border-collapse: collapse;
-	background-color: #ECE27F;
+	background-color: #ECD97F;
 }
 td.intro{
 	text-align: left;
 	font-size: 18px;
 	padding: 25px;
-	border: 12px solid #755230;
+	border: 12px solid #754C30;
 	border-left-width: 50px;
 	border-right-width: 50px;
 	line-height: 27px;
 }
 td.calculator, td.table1, td.table2{
 	width: 800px;
-	border: 12px solid #755230;
+	border: 12px solid #754C30;
 	border-left-width: 50px;
 	border-right-width: 50px;
 	padding-top: 0px;
@@ -33,12 +33,12 @@ th, td{
 	border: 2px solid;
 	text-align: center;
 	padding: 10px;
-	border-color: #755230;
+	border-color: #593B26;
 }
 th{
 	border-top: 4px solid;
 	border-bottom: 4px solid;
-	border-color: #755230;
+	border-color: #593B26;
 	width: 40px;
 }
 th.levels{
