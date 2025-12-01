@@ -1,0 +1,70 @@
+body{
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color: #9A8544;
+	color: black;
+}
+table{
+	border-collapse: collapse;
+	background-color: #D6C35C;
+}
+td.intro{
+	text-align: left;
+	font-size: 18px;
+	padding: 25px;
+	border: 12px solid #749E50;
+	border-left-width: 50px;
+	border-right-width: 50px;
+	line-height: 27px;
+}
+td.calculator, td.table1, td.table2{
+	width: 800px;
+	border: 12px solid #749E50;
+	border-left-width: 50px;
+	border-right-width: 50px;
+	padding-top: 0px;
+	padding-bottom: 20px;
+	line-height: 14px;
+}
+td.calculator{
+	padding-top: 5px;
+}
+th, td{
+	border: 2px solid;
+	text-align: center;
+	padding: 10px;
+	width: 35px;
+	border-color: #595026;
+}
+th{
+	border-top: 4px solid;
+	border-bottom: 4px solid;
+	border-color: #595026;
+}
+th.names{
+	width: 70px;
+}
+th.classes{
+	width: 120px;
+}
+th.parents{
+	width: 86px;
+}
+th.levels{
+	width: 92px;
+}
+table#main{
+	margin-left: auto; 
+	margin-right: auto;
+	padding: 10px;
+}
+table.statstable{
+	margin-left: auto; 
+	margin-right: auto;
+}
+a:link{
+  color: #440066;
+}
+a:visited{
+  color: #440066;
+}
