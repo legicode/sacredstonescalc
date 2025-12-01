@@ -1,12 +1,12 @@
 body{
 	font-family: sans-serif;
 	font-size: 16px;
-	background-color: #8C7940;
+	background-color: #897842;
 	color: black;
 }
 table{
 	border-collapse: collapse;
-	background-color: #E3DB88;
+	background-color: #E0D88B;
 }
 td.intro{
 	text-align: left;
@@ -61,5 +61,4 @@ a:link{
 }
 a:visited{
   color: #440066;
-
 }
