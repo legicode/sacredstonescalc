@@ -12,14 +12,14 @@ td.intro{
 	text-align: left;
 	font-size: 18px;
 	padding: 25px;
-	border: 12px solid #749E50;
+	border: 12px solid #67482B;
 	border-left-width: 50px;
 	border-right-width: 50px;
 	line-height: 27px;
 }
 td.calculator, td.table1, td.table2{
 	width: 800px;
-	border: 12px solid #749E50;
+	border: 12px solid #67482B;
 	border-left-width: 50px;
 	border-right-width: 50px;
 	padding-top: 0px;
@@ -34,12 +34,12 @@ th, td{
 	text-align: center;
 	padding: 10px;
 	width: 35px;
-	border-color: #595026;
+	border-color: #67482B;
 }
 th{
 	border-top: 4px solid;
 	border-bottom: 4px solid;
-	border-color: #595026;
+	border-color: #67482B;
 }
 th.names{
 	width: 70px;
