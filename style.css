@@ -6,7 +6,7 @@ body{
 }
 table{
 	border-collapse: collapse;
-	background-color: #E0D88B;
+	background-color: #E0D18B;
 }
 td.intro{
 	text-align: left;
@@ -63,3 +63,4 @@ a:visited{
   color: #440066;
 
 }
+
