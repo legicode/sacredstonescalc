@@ -896,15 +896,15 @@ function updateFixedTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = currentHP;
-		atk.innerHTML = currentATK;
-		skl.innerHTML = currentSKL;
-		spd.innerHTML = currentSPD;
-		lck.innerHTML = currentLCK;
-		def.innerHTML = currentDEF;
-		res.innerHTML = currentRES;
-		con.innerHTML = currentCON;
-		mov.innerHTML = currentMOV;
+		hp.innerHTML = "<u>"+currentHP+"</u>";
+		atk.innerHTML = "<u>"+currentATK+"</u>";
+		skl.innerHTML = "<u>"+currentSKL+"</u>";
+		spd.innerHTML = "<u>"+currentSPD+"</u>";
+		lck.innerHTML = "<u>"+currentLCK+"</u>";
+		def.innerHTML = "<u>"+currentDEF+"</u>";
+		res.innerHTML = "<u>"+currentRES+"</u>";
+		con.innerHTML = "<u>"+currentCON+"</u>";
+		mov.innerHTML = "<u>"+currentMOV+"</u>";
 	}
 	let baseLevel = 1;
 	if(promotions.get(char) == "P"){
