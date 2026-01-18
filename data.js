@@ -54,7 +54,7 @@ const charGrowths = new Map([
 	["Hayden", 			[70, 40, 45, 45, 40, 25, 25, 0, 0]],
 	["Valter", 			[80, 40, 55, 50, 15, 20, 20, 0, 0]],
 	["Fado", 			[85, 55, 40, 30, 25, 45, 25, 0, 0]],
-	["Lyon", 			[85, 50, 55, 55, 30, 45, 55, 0, 0]],
+	["Lyon", 			[85, 50, 55, 55, 30, 45, 55, 0, 0]]
 ]);
 
 const genders = new Map([
@@ -106,7 +106,7 @@ const genders = new Map([
 	["Hayden", 			"M"],
 	["Valter", 			"M"],
 	["Fado", 			"M"],
-	["Lyon", 			"M"],
+	["Lyon", 			"M"]
 ]);
 
 const promotions = new Map([
@@ -158,7 +158,7 @@ const promotions = new Map([
 	["Hayden", 			"P"],
 	["Valter", 			"P"],
 	["Fado", 			"P"],
-	["Lyon", 			"P"],
+	["Lyon", 			"P"]
 ]);
 
 const charBases = new Map([
@@ -210,7 +210,7 @@ const charBases = new Map([
 	["Hayden", 			[10, 37, 17, 14, 15, 17, 12, 12, 10, 7]],
 	["Valter", 			[13, 45, 19, 17, 17,  3, 13, 12, 11, 8]],
 	["Fado", 			[11, 46, 20, 14, 12,  5, 18, 11, 18, 5]],
-	["Lyon", 			[14, 44, 22, 13, 11,  4, 17, 19,  7, 6]],
+	["Lyon", 			[14, 44, 22, 13, 11,  4, 17, 19,  7, 6]]
 ]);
 
 const classCaps = new Map([
@@ -258,7 +258,7 @@ const classCaps = new Map([
 	["Jrnymn 3 (M)",		[60, 26, 29, 28, 30, 23, 23, 20, 15]],
 	["Recruit 3 (F)",		[60, 23, 30, 29, 30, 22, 26, 20, 15]],
 	["Pupil 3 (M)",			[60, 29, 28, 27, 30, 21, 26, 20, 15]],
-	["Necromancer (M)",		[60, 30, 25, 25, 30, 30, 30, 25, 15]],
+	["Necromancer (M)",		[60, 30, 25, 25, 30, 30, 30, 25, 15]]
 ])
 
 const promotionGains = new Map([
@@ -320,7 +320,7 @@ const promotionGains = new Map([
 	["Pupil 2 → Sage (M)",					[4, 1, 0, 0, 0, 3, 3, 2, 1]],
 	["Jrnymn 2 → Jrnymn 3 (M)",				[4, 1, 2, 2, 0, 2, 2, 0, 1]],
 	["Recruit 2 → Recruit 3 (F)",			[2, 2, 1, 1, 0, 2, 1, 0, 1]],
-	["Pupil 2 → Pupil 3 (M)",				[4, 2, 0, 1, 0, 3, 3, 0, 1]],
+	["Pupil 2 → Pupil 3 (M)",				[4, 2, 0, 1, 0, 3, 3, 0, 1]]
 ])
 
 const baseClasses = new Map([
@@ -372,7 +372,7 @@ const baseClasses = new Map([
 	["Hayden", 			"Ranger"],
 	["Valter", 			"Wyvern Knight"],
 	["Fado", 			"General"],
-	["Lyon", 			"Necromancer"],
+	["Lyon", 			"Necromancer"]
 ]);
 
 const classPromotions = new Map([
@@ -424,7 +424,7 @@ const classPromotions = new Map([
 	["Hayden", 			["Ranger"]],
 	["Valter", 			["Wyvern Knight"]],
 	["Fado", 			["General"]],
-	["Lyon", 			["Necromancer"]],
+	["Lyon", 			["Necromancer"]]
 ]);
 
 function updateHit(){
@@ -546,15 +546,15 @@ function updateAverageTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = "<b>"+currentHP+"</b>";
-		atk.innerHTML = "<b>"+currentATK+"</b>";
-		skl.innerHTML = "<b>"+currentSKL+"</b>";
-		spd.innerHTML = "<b>"+currentSPD+"</b>";
-		lck.innerHTML = "<b>"+currentLCK+"</b>";
-		def.innerHTML = "<b>"+currentDEF+"</b>";
-		res.innerHTML = "<b>"+currentRES+"</b>";
-		con.innerHTML = "<b>"+currentCON+"</b>";
-		mov.innerHTML = "<b>"+currentMOV+"</b>";
+		hp.innerHTML = "<b>"+Math.round(currentHP * 100) / 100+"</b>";
+		atk.innerHTML = "<b>"+Math.round(currentATK * 100) / 100+"</b>";
+		skl.innerHTML = "<b>"+Math.round(currentSKL * 100) / 100+"</b>";
+		spd.innerHTML = "<b>"+Math.round(currentSPD * 100) / 100+"</b>";
+		lck.innerHTML = "<b>"+Math.round(currentLCK * 100) / 100+"</b>";
+		def.innerHTML = "<b>"+Math.round(currentDEF * 100) / 100+"</b>";
+		res.innerHTML = "<b>"+Math.round(currentRES * 100) / 100+"</b>";
+		con.innerHTML = "<b>"+Math.round(currentCON * 100) / 100+"</b>";
+		mov.innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
 	}
 	if(promotions.get(char) == "N" || promotions.get(char) == "T"){
 		let baseLevel = charBases.get(char)[0];
@@ -621,15 +621,15 @@ function updateAverageTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = "<b>"+currentHP+"</b>";
-		atk.innerHTML = "<b>"+currentATK+"</b>";
-		skl.innerHTML = "<b>"+currentSKL+"</b>";
-		spd.innerHTML = "<b>"+currentSPD+"</b>";
-		lck.innerHTML = "<b>"+currentLCK+"</b>";
-		def.innerHTML = "<b>"+currentDEF+"</b>";
-		res.innerHTML = "<b>"+currentRES+"</b>";
-		con.innerHTML = "<b>"+currentCON+"</b>";
-		mov.innerHTML = "<b>"+currentMOV+"</b>";
+		hp.innerHTML = "<b>"+Math.round(currentHP * 100) / 100+"</b>";
+		atk.innerHTML = "<b>"+Math.round(currentATK * 100) / 100+"</b>";
+		skl.innerHTML = "<b>"+Math.round(currentSKL * 100) / 100+"</b>";
+		spd.innerHTML = "<b>"+Math.round(currentSPD * 100) / 100+"</b>";
+		lck.innerHTML = "<b>"+Math.round(currentLCK * 100) / 100+"</b>";
+		def.innerHTML = "<b>"+Math.round(currentDEF * 100) / 100+"</b>";
+		res.innerHTML = "<b>"+Math.round(currentRES * 100) / 100+"</b>";
+		con.innerHTML = "<b>"+Math.round(currentCON * 100) / 100+"</b>";
+		mov.innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
 	}
 	let baseLevel = 1;
 	if(promotions.get(char) == "P"){
