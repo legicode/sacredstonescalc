@@ -483,6 +483,7 @@ function updateEXP(){
 		}
 		else if (enemyType.selectedIndex == 7){
 			enemyPower = 5;
+			bossEXP.checked = true;
 		}
 		let mode = chapterEXP.checked * 1 + 1;
 		if (mode == 1){
