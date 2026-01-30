@@ -21,6 +21,37 @@
 				True hit rate: <b><span id="trueHit"></span></b><br/>
 			</td></tr>
 
+			<tr><td class="calculator">
+				<h2>EXP calculator</h2>
+				Player level: 
+				<select id="playerLevel" onChange="updateEXP()"></select> &nbsp&nbsp
+				Enemy level: 
+				<select id="enemyLevel" onChange="updateEXP()"></select> &nbsp&nbsp <br/><br/>
+				Player class: <select id="playerType" onChange="updateEXP()">
+					<option value="unpromoted">Standard unpromoted classes</option>
+					<option value="promoted">Standard promoted classes</option>
+					<option value="support">Thief/Healer/Manakete/Dancer</option>
+					<option value="promosupport">Promoted thief/healer</option>
+					<option value="trainee">Base trainee classes</option>
+				</select> &nbsp&nbsp
+				Enemy class: <select id="enemyType" onChange="updateEXP()">
+					<option value="unpromoted">Standard unpromoted classes</option>
+					<option value="promoted">Standard promoted classes</option>
+					<option value="thief">Unpromoted thief</option>
+					<option value="promothief">Assassin/Rogue</option>
+					<option value="support">Soldier/Unpromoted healer</option>
+					<option value="promosupport">Bishop/Valkyrie</option>
+					<option value="entombed">Entombed monsters</option>
+					<option value="finalboss">Fomortiis the Demon King</option>
+				</select><br/><br/>
+				&nbsp&nbsp&nbsp&nbsp
+				Enemy killed: <input type="checkbox" id="killEXP" onChange="updateEXP()"> &nbsp
+				Chapters 1-8: <input type="checkbox" id="chapterEXP" onChange="updateEXP()"> &nbsp
+				Boss: <input type="checkbox" id="bossEXP" onChange="updateEXP()"> &nbsp
+				Silencer: <input type="checkbox" id="silencerEXP" onChange="updateEXP()"> &nbsp&nbsp <br /><br />
+				Experience: <b><span id="exp"></span></b><br/>
+			</td></tr>
+
 			<tr><td class="table1">
 				<h2>Average stats</h2>
 				<b>Character:</b> <select id="charAverage" onChange="updateCharAverage()"></select> &nbsp&nbsp

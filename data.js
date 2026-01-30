@@ -439,6 +439,63 @@ function updateHit(){
 	trueHit.innerHTML = trueHitRate;
 }
 
+function updateEXP(){
+	let playerPower = 3;
+	if (playerType.selectedIndex == 2){
+		playerPower = 2;
+	}
+	else if (playerType.selectedIndex == 4){
+		playerPower = 1;
+	}
+	let expGain = Math.max(Math.floor((31 + enemyLevel.value * 1 - playerLevel.value * 1) / (playerPower)), 1);
+	if (killEXP.checked){
+		let playerBonus = 0;
+		if (playerType.selectedIndex == 1){
+			playerBonus = 60;
+		}
+		else if (playerType.selectedIndex == 3 || playerType.selectedIndex == 5){
+			playerBonus = 40;
+		}
+		let enemyPower = 3;
+		let enemyBonus = 0;
+		let thiefEXP = 0;
+		let entombedEXP = 0;
+		if (enemyType.selectedIndex == 1){
+			enemyBonus = 60;
+		}
+		else if (enemyType.selectedIndex == 2){
+			enemyPower = 2;
+			thiefEXP = 20;
+		}
+		else if (enemyType.selectedIndex == 3){
+			enemyBonus = 40;
+			thiefEXP = 20;
+		}
+		else if (enemyType.selectedIndex == 4){
+			enemyPower = 2;
+		}
+		else if (enemyType.selectedIndex == 5){
+			enemyBonus = 40;
+		}
+		else if (enemyType.selectedIndex == 6){
+			enemyPower = 1;
+			entombedEXP = 40;
+		}
+		else if (enemyType.selectedIndex == 7){
+			enemyPower = 5;
+		}
+		let mode = chapterEXP.checked * 1 + 1;
+		if (mode == 1){
+			if (enemyLevel.value * enemyPower + enemyBonus <= playerLevel.vaule * playerPower + playerBonus){
+				mode = 2;
+			}
+		}
+		expGain += Math.max(Math.floor((silencerEXP.checked * 1 + 1) * ((enemyLevel.value * enemyPower + enemyBonus) - ((playerLevel.value * playerPower + playerBonus) / mode) + 20 + thiefEXP + entombedEXP + bossEXP.checked * 40)), 0);
+		expGain = Math.min(expGain, 100);
+	}
+	exp.innerHTML = expGain + " EXP";
+}
+
 function updateCharAverage() {
 	char = charAverage.value;
 	if (char.includes("'")) {
@@ -987,6 +1044,29 @@ for (let i = 0; i <= 100; i++){
 }
 displayedHit.selectedIndex = 25;
 updateHit();
+
+var playerLevel = document.getElementById("playerLevel");
+var enemyLevel = document.getElementById("enemyLevel");
+var playerType = document.getElementById("playerType");
+var enemyType = document.getElementById("enemyType");
+var killEXP = document.getElementById("killEXP");
+var chapterEXP = document.getElementById("chapterEXP");
+var bossEXP = document.getElementById("bossEXP");
+var silencerEXP = document.getElementById("silencerEXP");
+var exp = document.getElementById("exp");
+for (let i = 0; i < 40; i++){
+	playerLevel.options[i] = new Option(40-i);
+	enemyLevel.options[i] = new Option(40-i);
+}
+playerLevel.selectedIndex = 20;
+enemyLevel.selectedIndex = 20;
+playerType.selectedIndex = 0;
+enemyType.selectedIndex = 0;
+killEXP.checked = true;
+chapterEXP.checked = false;
+bossEXP.checked = false;
+silencerEXP.checked = false;
+updateEXP();
 
 var charAverage = document.getElementById("charAverage");
 var promoLevelAverage = document.getElementById("promoLevelAverage");
