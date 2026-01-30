@@ -275,7 +275,7 @@ const promotionGains = new Map([
 	["Fighter → Warrior (M)",				[3, 1, 2, 0, 0, 3, 3, 2, 1]],
 	["Fighter → Hero (M)",					[4, 1, 2, 2, 0, 2, 2, 0, 1]],
 	["Mercenary → Hero (M)",				[4, 1, 2, 2, 0, 2, 2, 2, 1]],
-	["Mercenray → Ranger (M)",				[3, 2, 1, 1, 0, 3, 3, 0, 2]],
+	["Mercenary → Ranger (M)",				[3, 2, 1, 1, 0, 3, 3, 0, 2]],
 	["Archer → Ranger (M)",					[3, 2, 1, 1, 0, 3, 3, 2, 2]],
 	["Archer → Ranger (F)",					[2, 2, 2, 1, 0, 3, 3, 3, 2]],
 	["Archer → Sniper (M)",					[3, 1, 2, 2, 0, 2, 3, 1, 1]],
