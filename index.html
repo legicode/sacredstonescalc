@@ -2,16 +2,15 @@
 <html lang="en"> 
 	<head>
 		<meta charset="utf-8"> 
-		<title>Sacred Stones stats calculator</title> 
+		<title>Path of Radiance stats calculator</title> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
 	<body>
 		<table id="main">
 			<tr><td class="intro">
-				<u><b>Average stats calculator for Fire Emblem: The Sacred Stones.</b></u><br />
-				Supports the Fixed Growths mod in <a href="https://www.romhacking.net/hacks/6494/">Sacred Stones Plus</a> by Mkol103. These will be slightly different from the true averages due to some specifics in how the calculation formula works.<br /><br />
-				Developed by <a href="https://bsky.app/profile/homestar.bsky.social">legi</a>. Feel free to message suggestions or ideas. Elibe games will be next.
+				<b>Average stats calculator for <u>Fire Emblem: Path of Radiance</u>.</b><br /><br />
+				Developed by <a href="https://bsky.app/profile/homestar.bsky.social">legi</a>. Feel free to message suggestions or ideas. More games in development!
 			</td></tr>
 
 			<tr><td class="calculator">
@@ -26,29 +25,21 @@
 				Player level: 
 				<select id="playerLevel" onChange="updateEXP()"></select> &nbsp&nbsp
 				Enemy level: 
-				<select id="enemyLevel" onChange="updateEXP()"></select><br/><br/>
-				Player class: <select id="playerType" onChange="updateEXP()">
-					<option value="unpromoted">Standard unpromoted classes</option>
-					<option value="promoted">Standard promoted classes</option>
-					<option value="support">Thief/Healer/Manakete/Dancer</option>
-					<option value="promosupport">Promoted thief/healer</option>
-					<option value="trainee">Base trainee classes</option>
-				</select> &nbsp&nbsp
-				Enemy class: <select id="enemyType" onChange="updateEXP()">
-					<option value="unpromoted">Standard unpromoted classes</option>
-					<option value="promoted">Standard promoted classes</option>
-					<option value="thief">Unpromoted thief</option>
-					<option value="promothief">Assassin/Rogue</option>
-					<option value="support">Soldier/Unpromoted healer</option>
-					<option value="promosupport">Bishop/Valkyrie</option>
-					<option value="entombed">Entombed monsters</option>
-					<option value="finalboss">Fomortiis the Demon King</option>
-				</select>&nbsp<br/><br/>
-				&nbsp&nbsp&nbsp&nbsp
+				<select id="enemyLevel" onChange="updateEXP()"></select><br/><br/> &nbsp
 				Enemy killed: <input type="checkbox" id="killEXP" onChange="updateEXP()"> &nbsp
-				Chapters 1-8: <input type="checkbox" id="chapterEXP" onChange="updateEXP()"> &nbsp
-				Boss: <input type="checkbox" id="bossEXP" onChange="updateEXP()"> &nbsp
-				Silencer: <input type="checkbox" id="silencerEXP" onChange="updateEXP()"> &nbsp&nbsp&nbsp <br /><br />
+				Boss: <input type="checkbox" id="bossEXP" onChange="updateEXP()"> &nbsp 
+				Thief: <input type="checkbox" id="thiefEXP" onChange="updateEXP()"> &nbsp 
+				Skills: <select id="expGrowth" onChange="updateEXP()">
+					<option value="base">Base</option>
+					<option value="blossom">Blossom</option>
+					<option value="paragon">Paragon</option>
+				</select> &nbsp
+				Difficulty: <select id="difficulty" onChange="updateEXP()">
+					<option value="easy">Easy</option>
+					<option value="normal">Normal</option>
+					<option value="hard">Hard</option>
+					<option value="maniac">Maniac</option>
+				</select><br /><br />
 				Experience: <b><span id="exp"></span></b><br/>
 			</td></tr>
 
@@ -56,12 +47,17 @@
 				<h2>Average stats</h2>
 				<b>Character:</b> <select id="charAverage" onChange="updateCharAverage()"></select> &nbsp&nbsp
 				<b>Promotion level:</b> <select id="promoLevelAverage" onChange="updateAverageTable()"></select> &nbsp&nbsp
-				<b>Promoted class:</b> <select id="promoClassAverage" onChange="updateAverageTable()"></select><br /><br />
+				<b>Beasts:</b> <select id="transformation" onChange="updateAverageTable()">
+					<option value="Base">Base</option>
+					<option value="Transformed" selected>Transformed</option>
+					<option value="Demi Band">Demi Band</option>
+				</select><br /><br />
 				<table class="statstable" id="averageGrowths">
 					<tr>
 						<th class="levels">Level</th>
 						<th>HP</th>
-						<th>Atk</th>
+						<th>Str</th>
+						<th>Mag</th>
 						<th>Skl</th>
 						<th>Spd</th>
 						<th>Lck</th>
@@ -73,40 +69,8 @@
 					<tr>
 						<th class="levels">Level</th>
 						<th>HP</th>
-						<th>Atk</th>
-						<th>Skl</th>
-						<th>Spd</th>
-						<th>Lck</th>
-						<th>Def</th>
-						<th>Res</th>
-						<th class="conmov">Con</th>
-						<th class="conmov">Mov</th>
-					</tr>
-				</table>
-			</td></tr>
-
-			<tr><td class="table2">
-				<h2>Fixed growth level ups</h2>
-				<b>Character:</b> <select id="charFixed" onChange="updateCharFixed()"></select> &nbsp&nbsp
-				<b>Promotion level:</b> <select id="promoLevelFixed" onChange="updateFixedTable()"></select> &nbsp&nbsp
-				<b>Promoted class:</b> <select id="promoClassFixed" onChange="updateFixedTable()"></select><br /><br />
-				<table class="statstable" id="fixedGrowths">
-					<tr>
-						<th class="levels">Level</th>
-						<th>HP</th>
-						<th>Atk</th>
-						<th>Skl</th>
-						<th>Spd</th>
-						<th>Lck</th>
-						<th>Def</th>
-						<th>Res</th>
-						<th class="conmov">Con</th>
-						<th class="conmov">Mov</th>
-					</tr>
-					<tr>
-						<th class="levels">Level</th>
-						<th>HP</th>
-						<th>Atk</th>
+						<th>Str</th>
+						<th>Mag</th>
 						<th>Skl</th>
 						<th>Spd</th>
 						<th>Lck</th>
