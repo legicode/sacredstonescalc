@@ -1028,7 +1028,7 @@ function updateFixedTable(){
 					this["Plevel"+(i+2).toString()+stats[j]+"growth"].innerHTML = "<u>"+this["current"+stats[j]]+"</u>";
 				}
 				else if (this["current"+stats[j]] + stat >= classCaps.get(promotion)[j]){
-					this["current"+stats[j]] = classCaps.get("Unpromoted")[j];
+					this["current"+stats[j]] = classCaps.get(promotion)[j];
 					this["Plevel"+(i+2).toString()+stats[j]+"growth"].innerHTML = "<u><i><b>"+this["current"+stats[j]]+"</b></i></u>";
 				}
 				else {
