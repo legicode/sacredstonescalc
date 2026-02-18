@@ -555,7 +555,7 @@ function updateAverageTable(){
 	currentRES = charBases.get(char)[7];
 	currentCON = charBases.get(char)[8];
 	currentMOV = charBases.get(char)[9];
-	if(promotions.get(char) == "T"){
+	if (promotions.get(char) == "T"){
 		for (let i = charBases.get(char)[0]-1; i < 9; i++){
 			row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
 			let level = row.insertCell(0);
@@ -616,9 +616,9 @@ function updateAverageTable(){
 		con.innerHTML = "<b>"+Math.round(currentCON * 100) / 100+"</b>";
 		mov.innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
 	}
-	if(promotions.get(char) == "N" || promotions.get(char) == "T"){
+	if (promotions.get(char) == "N" || promotions.get(char) == "T"){
 		let baseLevel = charBases.get(char)[0];
-		if(promotions.get(char) == "T"){
+		if (promotions.get(char) == "T"){
 			baseLevel = 1;
 		}
 		for (let i = baseLevel-1; i < promoLevelAverage.value - 1; i++){
@@ -669,7 +669,7 @@ function updateAverageTable(){
 		let mov = row.insertCell(9);
 		level.innerHTML = "<b>Promotion</b>";
 		let promotion = promoClassAverage.value + " (" + genders.get(char)+")";
-		if(promotions.get(char) != "T"){
+		if (promotions.get(char) != "T"){
 			promotion = baseClasses.get(char) + " → " + promotion;
 		}
 		currentHP += promotionGains.get(promotion)[0];
@@ -692,7 +692,7 @@ function updateAverageTable(){
 		mov.innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
 	}
 	let baseLevel = 1;
-	if(promotions.get(char) == "P"){
+	if (promotions.get(char) == "P"){
 		baseLevel = charBases.get(char)[0];
 	}
 	for (let i = baseLevel-1; i < 19; i++){
@@ -718,7 +718,7 @@ function updateAverageTable(){
 		con.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONavg\"></span>";
 		mov.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVavg\"></span>";
 		let promotion = promoClassAverage.value + " (" + genders.get(char)+")";
-		if(promotions.get(char) == "T"){
+		if (promotions.get(char) == "T"){
 			promotion = promotion.split(" → ")[1];
 		}
 		for (let j = 0; j < 9; j++){
@@ -792,7 +792,7 @@ function updateFixedTable(){
 	currentRES = charBases.get(char)[7];
 	currentCON = charBases.get(char)[8];
 	currentMOV = charBases.get(char)[9];
-	if(promotions.get(char) == "T"){
+	if (promotions.get(char) == "T"){
 		for (let i = charBases.get(char)[0]-1; i < 9; i++){
 			row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
 			let level = row.insertCell(0);
@@ -862,9 +862,9 @@ function updateFixedTable(){
 		con.innerHTML = currentCON;
 		mov.innerHTML = currentMOV;
 	}
-	if(promotions.get(char) == "N" || promotions.get(char) == "T"){
+	if (promotions.get(char) == "N" || promotions.get(char) == "T"){
 		let baseLevel = charBases.get(char)[0];
-		if(promotions.get(char) == "T"){
+		if (promotions.get(char) == "T"){
 			baseLevel = 1;
 		}
 		for (let i = baseLevel-1; i < promoLevelFixed.value - 1; i++){
@@ -944,7 +944,7 @@ function updateFixedTable(){
 		let mov = row.insertCell(9);
 		level.innerHTML = "<b>Promotion</b>";
 		let promotion = promoClassFixed.value + " (" + genders.get(char)+")";
-		if(promotions.get(char) != "T"){
+		if (promotions.get(char) != "T"){
 			promotion = baseClasses.get(char) + " → " + promotion;
 		}
 		currentHP += promotionGains.get(promotion)[0];
@@ -967,7 +967,7 @@ function updateFixedTable(){
 		mov.innerHTML = "<u>"+currentMOV+"</u>";
 	}
 	let baseLevel = 1;
-	if(promotions.get(char) == "P"){
+	if (promotions.get(char) == "P"){
 		baseLevel = charBases.get(char)[0];
 	}
 	for (let i = baseLevel-1; i < 19; i++){
@@ -993,7 +993,7 @@ function updateFixedTable(){
 		con.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONgrowth\"></span>";
 		mov.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVgrowth\"></span>";
 		let promotion = promoClassFixed.value + " (" + genders.get(char)+")";
-		if(promotions.get(char) == "T"){
+		if (promotions.get(char) == "T"){
 			promotion = promotion.split(" → ")[1];
 		}
 		for (let j = 0; j < 9; j++){
