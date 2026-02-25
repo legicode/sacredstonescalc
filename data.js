@@ -388,7 +388,7 @@ const classPromotions = new Map([
 	["Colm", 			["Rogue", "Assassin"]],
 	["Artur", 			["Bishop", "Sage"]],
 	["Lute", 			["Sage", "Mage Knight"]],
-	["Natasha", 		["Bishop", "Sage"]],
+	["Natasha", 		["Bishop", "Valkyrie"]],
 	["Joshua", 			["Swordmaster", "Assassin"]],
 	["Ephraim", 		["Great Lord"]],
 	["Forde", 			["Paladin", "Great Knight"]],
