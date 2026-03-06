@@ -166,7 +166,7 @@ const charBases = new Map([
 	["Seth", 			[ 1, 20, 14, 13, 12, 13, 11,  8, 11, 8]],
 	["Franz", 			[ 1, 20,  7,  5,  7,  2,  6,  1,  9, 7]],
 	["Gilliam", 		[ 4, 25,  9,  6,  3,  3,  9,  3, 14, 4]],
-	["Vanessa",			[ 3, 17,  5,  7, 11,  4,  6,  5,  5, 7]],
+	["Vanessa",			[ 1, 17,  5,  7, 11,  4,  6,  5,  5, 7]],
 	["Moulder", 		[ 1, 20,  4,  6,  9,  1,  2,  5,  9, 5]],
 	["Ross", 			[ 1, 15,  5,  2,  3,  8,  3,  0,  8, 4]],
 	["Garcia", 			[ 4, 28,  8,  7,  7,  3,  5,  1, 14, 5]],
@@ -499,23 +499,23 @@ function updateEXP(){
 	exp.innerHTML = expGain + " EXP";
 }
 
-function updateCharAverage() {
+function updateCharAverage(){
 	char = charAverage.value;
-	if (char.includes("'")) {
+	if (char.includes("'")){
 		char = char.replaceAll("'", "")
 	}
-	while (promoClassAverage.options.length > 0) {
+	while (promoClassAverage.length > 0){
 		promoClassAverage.remove(0);
 	}
 	for (let i = 0; i < classPromotions.get(char).length; i++){
-		promoClassAverage.options[i] = new Option(classPromotions.get(char)[i]);
+		promoClassAverage[i] = new Option(classPromotions.get(char)[i]);
 	}
 	updateAverageTable();
 }
 
 function updateAverageTable(){
 	char = charAverage.value;
-	if (char.includes("'")) {
+	if (char.includes("'")){
 		char = char.replaceAll("'", "")
 	}
 	var averageGrowths = document.getElementById("averageGrowths");
@@ -523,26 +523,16 @@ function updateAverageTable(){
 		averageGrowths.deleteRow(1);
 	}
 	row = averageGrowths.insertRow(1);
-	level = row.insertCell(0);
-	hp = row.insertCell(1);
-	atk = row.insertCell(2);
-	skl = row.insertCell(3);
-	spd = row.insertCell(4);
-	lck = row.insertCell(5);
-	def = row.insertCell(6);
-	res = row.insertCell(7);
-	con = row.insertCell(8);
-	mov = row.insertCell(9);
-	level.innerHTML = "<b>Base stats</b>";
-	hp.innerHTML = "<span id=\"aBaseHP\"></span>";
-	atk.innerHTML = "<span id=\"aBaseATK\"></span>";
-	skl.innerHTML = "<span id=\"aBaseSKL\"></span>";
-	spd.innerHTML = "<span id=\"aBaseSPD\"></span>";
-	lck.innerHTML = "<span id=\"aBaseLCK\"></span>";
-	def.innerHTML = "<span id=\"aBaseDEF\"></span>";
-	res.innerHTML = "<span id=\"aBaseRES\"></span>";
-	con.innerHTML = "<span id=\"aBaseCON\"></span>";
-	mov.innerHTML = "<span id=\"aBaseMOV\"></span>";
+	level = row.insertCell(0).innerHTML = "<b>Base stats</b>";
+	hp = row.insertCell(1).innerHTML = "<span id=\"aBaseHP\"></span>";
+	atk = row.insertCell(2).innerHTML = "<span id=\"aBaseATK\"></span>";
+	skl = row.insertCell(3).innerHTML = "<span id=\"aBaseSKL\"></span>";
+	spd = row.insertCell(4).innerHTML = "<span id=\"aBaseSPD\"></span>";
+	lck = row.insertCell(5).innerHTML = "<span id=\"aBaseLCK\"></span>";
+	def = row.insertCell(6).innerHTML = "<span id=\"aBaseDEF\"></span>";
+	res = row.insertCell(7).innerHTML = "<span id=\"aBaseRES\"></span>";
+	con = row.insertCell(8).innerHTML = "<span id=\"aBaseCON\"></span>";
+	mov = row.insertCell(9).innerHTML = "<span id=\"aBaseMOV\"></span>";
 	for (let i = 0; i < 9; i++){
 		this["aBase"+(stats[i])].innerHTML = charBases.get(char)[i+1];
 	}
@@ -558,26 +548,16 @@ function updateAverageTable(){
 	if (promotions.get(char) == "T"){
 		for (let i = charBases.get(char)[0]-1; i < 9; i++){
 			row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
-			let level = row.insertCell(0);
-			let hp = row.insertCell(1);
-			let atk = row.insertCell(2);
-			let skl = row.insertCell(3);
-			let spd = row.insertCell(4);
-			let lck = row.insertCell(5);
-			let def = row.insertCell(6);
-			let res = row.insertCell(7);
-			let con = row.insertCell(8);
-			let mov = row.insertCell(9);
-			level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
-			hp.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"HPavg\"></span>";
-			atk.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"ATKavg\"></span>";
-			skl.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SKLavg\"></span>";
-			spd.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SPDavg\"></span>";
-			lck.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"LCKavg\"></span>";
-			def.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"DEFavg\"></span>";
-			res.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"RESavg\"></span>";
-			con.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"CONavg\"></span>";
-			mov.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"MOVavg\"></span>";
+			let level = row.insertCell(0).innerHTML = (i+1).toString() + " → " + (i+2).toString();
+			let hp = row.insertCell(1).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"HPavg\"></span>";
+			let atk = row.insertCell(2).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"ATKavg\"></span>";
+			let skl = row.insertCell(3).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SKLavg\"></span>";
+			let spd = row.insertCell(4).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SPDavg\"></span>";
+			let lck = row.insertCell(5).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"LCKavg\"></span>";
+			let def = row.insertCell(6).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"DEFavg\"></span>";
+			let res = row.insertCell(7).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"RESavg\"></span>";
+			let con = row.insertCell(8).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"CONavg\"></span>";
+			let mov = row.insertCell(9).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"MOVavg\"></span>";
 			for (let j = 0; j < 9; j++){
 				this["current"+stats[j]] += charGrowths.get(char)[j] / 100;
 				this["current"+stats[j]] = Math.round(this["current"+stats[j]] * 100) / 100;
@@ -623,26 +603,16 @@ function updateAverageTable(){
 		}
 		for (let i = baseLevel-1; i < promoLevelAverage.value - 1; i++){
 			row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
-			let level = row.insertCell(0);
-			let hp = row.insertCell(1);
-			let atk = row.insertCell(2);
-			let skl = row.insertCell(3);
-			let spd = row.insertCell(4);
-			let lck = row.insertCell(5);
-			let def = row.insertCell(6);
-			let res = row.insertCell(7);
-			let con = row.insertCell(8);
-			let mov = row.insertCell(9);
-			level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
-			hp.innerHTML = "<span id=\"level"+(i+2).toString()+"HPavg\"></span>";
-			atk.innerHTML = "<span id=\"level"+(i+2).toString()+"ATKavg\"></span>";
-			skl.innerHTML = "<span id=\"level"+(i+2).toString()+"SKLavg\"></span>";
-			spd.innerHTML = "<span id=\"level"+(i+2).toString()+"SPDavg\"></span>";
-			lck.innerHTML = "<span id=\"level"+(i+2).toString()+"LCKavg\"></span>";
-			def.innerHTML = "<span id=\"level"+(i+2).toString()+"DEFavg\"></span>";
-			res.innerHTML = "<span id=\"level"+(i+2).toString()+"RESavg\"></span>";
-			con.innerHTML = "<span id=\"level"+(i+2).toString()+"CONavg\"></span>";
-			mov.innerHTML = "<span id=\"level"+(i+2).toString()+"MOVavg\"></span>";
+			let level = row.insertCell(0).innerHTML = (i+1).toString() + " → " + (i+2).toString();
+			let hp = row.insertCell(1).innerHTML = "<span id=\"level"+(i+2).toString()+"HPavg\"></span>";
+			let atk = row.insertCell(2).innerHTML = "<span id=\"level"+(i+2).toString()+"ATKavg\"></span>";
+			let skl = row.insertCell(3).innerHTML = "<span id=\"level"+(i+2).toString()+"SKLavg\"></span>";
+			let spd = row.insertCell(4).innerHTML = "<span id=\"level"+(i+2).toString()+"SPDavg\"></span>";
+			let lck = row.insertCell(5).innerHTML = "<span id=\"level"+(i+2).toString()+"LCKavg\"></span>";
+			let def = row.insertCell(6).innerHTML = "<span id=\"level"+(i+2).toString()+"DEFavg\"></span>";
+			let res = row.insertCell(7).innerHTML = "<span id=\"level"+(i+2).toString()+"RESavg\"></span>";
+			let con = row.insertCell(8).innerHTML = "<span id=\"level"+(i+2).toString()+"CONavg\"></span>";
+			let mov = row.insertCell(9).innerHTML = "<span id=\"level"+(i+2).toString()+"MOVavg\"></span>";
 			for (let j = 0; j < 9; j++){
 				this["current"+stats[j]] += charGrowths.get(char)[j] / 100;
 				this["current"+stats[j]] = Math.round(this["current"+stats[j]] * 100) / 100;
@@ -656,18 +626,6 @@ function updateAverageTable(){
 				}
 			}
 		}
-		row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
-		let level = row.insertCell(0);
-		let hp = row.insertCell(1);
-		let atk = row.insertCell(2);
-		let skl = row.insertCell(3);
-		let spd = row.insertCell(4);
-		let lck = row.insertCell(5);
-		let def = row.insertCell(6);
-		let res = row.insertCell(7);
-		let con = row.insertCell(8);
-		let mov = row.insertCell(9);
-		level.innerHTML = "<b>Promotion</b>";
 		let promotion = promoClassAverage.value + " (" + genders.get(char)+")";
 		if (promotions.get(char) != "T"){
 			promotion = baseClasses.get(char) + " → " + promotion;
@@ -681,15 +639,17 @@ function updateAverageTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = "<b>"+Math.round(currentHP * 100) / 100+"</b>";
-		atk.innerHTML = "<b>"+Math.round(currentATK * 100) / 100+"</b>";
-		skl.innerHTML = "<b>"+Math.round(currentSKL * 100) / 100+"</b>";
-		spd.innerHTML = "<b>"+Math.round(currentSPD * 100) / 100+"</b>";
-		lck.innerHTML = "<b>"+Math.round(currentLCK * 100) / 100+"</b>";
-		def.innerHTML = "<b>"+Math.round(currentDEF * 100) / 100+"</b>";
-		res.innerHTML = "<b>"+Math.round(currentRES * 100) / 100+"</b>";
-		con.innerHTML = "<b>"+Math.round(currentCON * 100) / 100+"</b>";
-		mov.innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
+		row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
+		let level = row.insertCell(0).innerHTML = "<b>Promotion</b>";
+		let hp = row.insertCell(1).innerHTML = "<b>"+Math.round(currentHP * 100) / 100+"</b>";
+		let atk = row.insertCell(2).innerHTML = "<b>"+Math.round(currentATK * 100) / 100+"</b>";
+		let skl = row.insertCell(3).innerHTML = "<b>"+Math.round(currentSKL * 100) / 100+"</b>";
+		let spd = row.insertCell(4).innerHTML = "<b>"+Math.round(currentSPD * 100) / 100+"</b>";
+		let lck = row.insertCell(5).innerHTML = "<b>"+Math.round(currentLCK * 100) / 100+"</b>";
+		let def = row.insertCell(6).innerHTML = "<b>"+Math.round(currentDEF * 100) / 100+"</b>";
+		let res = row.insertCell(7).innerHTML = "<b>"+Math.round(currentRES * 100) / 100+"</b>";
+		let con = row.insertCell(8).innerHTML = "<b>"+Math.round(currentCON * 100) / 100+"</b>";
+		let mov = row.insertCell(9).innerHTML = "<b>"+Math.round(currentMOV * 100) / 100+"</b>";
 	}
 	let baseLevel = 1;
 	if (promotions.get(char) == "P"){
@@ -697,26 +657,16 @@ function updateAverageTable(){
 	}
 	for (let i = baseLevel-1; i < 19; i++){
 		row = averageGrowths.insertRow(averageGrowths.rows.length - 1);
-		let level = row.insertCell(0);
-		let hp = row.insertCell(1);
-		let atk = row.insertCell(2);
-		let skl = row.insertCell(3);
-		let spd = row.insertCell(4);
-		let lck = row.insertCell(5);
-		let def = row.insertCell(6);
-		let res = row.insertCell(7);
-		let con = row.insertCell(8);
-		let mov = row.insertCell(9);
-		level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
-		hp.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"HPavg\"></span>";
-		atk.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"ATKavg\"></span>";
-		skl.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SKLavg\"></span>";
-		spd.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SPDavg\"></span>";
-		lck.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"LCKavg\"></span>";
-		def.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"DEFavg\"></span>";
-		res.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"RESavg\"></span>";
-		con.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONavg\"></span>";
-		mov.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVavg\"></span>";
+		let level = row.insertCell(0).innerHTML = (i+1).toString() + " → " + (i+2).toString();
+		let hp = row.insertCell(1).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"HPavg\"></span>";
+		let atk = row.insertCell(2).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"ATKavg\"></span>";
+		let skl = row.insertCell(3).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SKLavg\"></span>";
+		let spd = row.insertCell(4).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SPDavg\"></span>";
+		let lck = row.insertCell(5).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"LCKavg\"></span>";
+		let def = row.insertCell(6).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"DEFavg\"></span>";
+		let res = row.insertCell(7).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"RESavg\"></span>";
+		let con = row.insertCell(8).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONavg\"></span>";
+		let mov = row.insertCell(9).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVavg\"></span>";
 		let promotion = promoClassAverage.value + " (" + genders.get(char)+")";
 		if (promotions.get(char) == "T"){
 			promotion = promotion.split(" → ")[1];
@@ -736,23 +686,23 @@ function updateAverageTable(){
 	}
 }
 
-function updateCharFixed() {
+function updateCharFixed(){
 	char = charFixed.value;
-	if (char.includes("'")) {
+	if (char.includes("'")){
 		char = char.replaceAll("'", "")
 	}
-	while (promoClassFixed.options.length > 0) {
+	while (promoClassFixed.length > 0){
 		promoClassFixed.remove(0);
 	}
 	for (let i = 0; i < classPromotions.get(char).length; i++){
-		promoClassFixed.options[i] = new Option(classPromotions.get(char)[i]);
+		promoClassFixed[i] = new Option(classPromotions.get(char)[i]);
 	}
 	updateFixedTable();
 }
 
 function updateFixedTable(){
 	char = charFixed.value;
-	if (char.includes("'")) {
+	if (char.includes("'")){
 		char = char.replaceAll("'", "")
 	}
 	var fixedGrowths = document.getElementById("fixedGrowths");
@@ -760,26 +710,16 @@ function updateFixedTable(){
 		fixedGrowths.deleteRow(1);
 	}
 	row = fixedGrowths.insertRow(1);
-	level = row.insertCell(0);
-	hp = row.insertCell(1);
-	atk = row.insertCell(2);
-	skl = row.insertCell(3);
-	spd = row.insertCell(4);
-	lck = row.insertCell(5);
-	def = row.insertCell(6);
-	res = row.insertCell(7);
-	con = row.insertCell(8);
-	mov = row.insertCell(9);
-	level.innerHTML = "<b>Base stats</b>";
-	hp.innerHTML = "<span id=\"fBaseHP\"></span>";
-	atk.innerHTML = "<span id=\"fBaseATK\"></span>";
-	skl.innerHTML = "<span id=\"fBaseSKL\"></span>";
-	spd.innerHTML = "<span id=\"fBaseSPD\"></span>";
-	lck.innerHTML = "<span id=\"fBaseLCK\"></span>";
-	def.innerHTML = "<span id=\"fBaseDEF\"></span>";
-	res.innerHTML = "<span id=\"fBaseRES\"></span>";
-	con.innerHTML = "<span id=\"fBaseCON\"></span>";
-	mov.innerHTML = "<span id=\"fBaseMOV\"></span>";
+	level = row.insertCell(0).innerHTML = "<b>Base stats</b>";
+	hp = row.insertCell(1).innerHTML = "<span id=\"fBaseHP\"></span>";
+	atk = row.insertCell(2).innerHTML = "<span id=\"fBaseATK\"></span>";
+	skl = row.insertCell(3).innerHTML = "<span id=\"fBaseSKL\"></span>";
+	spd = row.insertCell(4).innerHTML = "<span id=\"fBaseSPD\"></span>";
+	lck = row.insertCell(5).innerHTML = "<span id=\"fBaseLCK\"></span>";
+	def = row.insertCell(6).innerHTML = "<span id=\"fBaseDEF\"></span>";
+	res = row.insertCell(7).innerHTML = "<span id=\"fBaseRES\"></span>";
+	con = row.insertCell(8).innerHTML = "<span id=\"fBaseCON\"></span>";
+	mov = row.insertCell(9).innerHTML = "<span id=\"fBaseMOV\"></span>";
 	for (let i = 0; i < 9; i++){
 		this["fBase"+(stats[i])].innerHTML = charBases.get(char)[i+1];
 	}
@@ -795,26 +735,16 @@ function updateFixedTable(){
 	if (promotions.get(char) == "T"){
 		for (let i = charBases.get(char)[0]-1; i < 9; i++){
 			row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
-			let level = row.insertCell(0);
-			let hp = row.insertCell(1);
-			let atk = row.insertCell(2);
-			let skl = row.insertCell(3);
-			let spd = row.insertCell(4);
-			let lck = row.insertCell(5);
-			let def = row.insertCell(6);
-			let res = row.insertCell(7);
-			let con = row.insertCell(8);
-			let mov = row.insertCell(9);
-			level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
-			hp.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"HPgrowth\"></span>";
-			atk.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"ATKgrowth\"></span>";
-			skl.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SKLgrowth\"></span>";
-			spd.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SPDgrowth\"></span>";
-			lck.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"LCKgrowth\"></span>";
-			def.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"DEFgrowth\"></span>";
-			res.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"RESgrowth\"></span>";
-			con.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"CONgrowth\"></span>";
-			mov.innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"MOVgrowth\"></span>";
+			let level = row.insertCell(0).innerHTML = (i+1).toString() + " → " + (i+2).toString();
+			let hp = row.insertCell(1).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"HPgrowth\"></span>";
+			let atk = row.insertCell(2).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"ATKgrowth\"></span>";
+			let skl = row.insertCell(3).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SKLgrowth\"></span>";
+			let spd = row.insertCell(4).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"SPDgrowth\"></span>";
+			let lck = row.insertCell(5).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"LCKgrowth\"></span>";
+			let def = row.insertCell(6).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"DEFgrowth\"></span>";
+			let res = row.insertCell(7).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"RESgrowth\"></span>";
+			let con = row.insertCell(8).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"CONgrowth\"></span>";
+			let mov = row.insertCell(9).innerHTML = "<span id=\"Tlevel"+(i+2).toString()+"MOVgrowth\"></span>";
 			for (let j = 0; j < 9; j++){
 				stat = Math.round((i+1) * charGrowths.get(char)[j] / 100) - Math.round(i * charGrowths.get(char)[j] / 100);
 				if (stat == 0){
@@ -830,18 +760,6 @@ function updateFixedTable(){
 				}
 			}
 		}
-		row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
-		let level = row.insertCell(0);
-		let hp = row.insertCell(1);
-		let atk = row.insertCell(2);
-		let skl = row.insertCell(3);
-		let spd = row.insertCell(4);
-		let lck = row.insertCell(5);
-		let def = row.insertCell(6);
-		let res = row.insertCell(7);
-		let con = row.insertCell(8);
-		let mov = row.insertCell(9);
-		level.innerHTML = "<b>Promotion</b>";
 		let promotion = baseClasses.get(char) + " → " + promoClassFixed.value.split(" → ")[0] + " (" + genders.get(char)+")";
 		currentHP += promotionGains.get(promotion)[0];
 		currentATK += promotionGains.get(promotion)[1];
@@ -852,15 +770,17 @@ function updateFixedTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = currentHP;
-		atk.innerHTML = currentATK;
-		skl.innerHTML = currentSKL;
-		spd.innerHTML = currentSPD;
-		lck.innerHTML = currentLCK;
-		def.innerHTML = currentDEF;
-		res.innerHTML = currentRES;
-		con.innerHTML = currentCON;
-		mov.innerHTML = currentMOV;
+		row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
+		let level = row.insertCell(0).innerHTML = "<b>Promotion</b>";
+		let hp = row.insertCell(1).innerHTML = currentHP;
+		let atk = row.insertCell(2).innerHTML = currentATK;
+		let skl = row.insertCell(3).innerHTML = currentSKL;
+		let spd = row.insertCell(4).innerHTML = currentSPD;
+		let lck = row.insertCell(5).innerHTML = currentLCK;
+		let def = row.insertCell(6).innerHTML = currentDEF;
+		let res = row.insertCell(7).innerHTML = currentRES;
+		let con = row.insertCell(8).innerHTML = currentCON;
+		let mov = row.insertCell(9).innerHTML = currentMOV;
 	}
 	if (promotions.get(char) == "N" || promotions.get(char) == "T"){
 		let baseLevel = charBases.get(char)[0];
@@ -931,18 +851,6 @@ function updateFixedTable(){
 				}
 			}
 		}
-		row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
-		let level = row.insertCell(0);
-		let hp = row.insertCell(1);
-		let atk = row.insertCell(2);
-		let skl = row.insertCell(3);
-		let spd = row.insertCell(4);
-		let lck = row.insertCell(5);
-		let def = row.insertCell(6);
-		let res = row.insertCell(7);
-		let con = row.insertCell(8);
-		let mov = row.insertCell(9);
-		level.innerHTML = "<b>Promotion</b>";
 		let promotion = promoClassFixed.value + " (" + genders.get(char)+")";
 		if (promotions.get(char) != "T"){
 			promotion = baseClasses.get(char) + " → " + promotion;
@@ -956,15 +864,17 @@ function updateFixedTable(){
 		currentRES += promotionGains.get(promotion)[6];
 		currentCON += promotionGains.get(promotion)[7];
 		currentMOV += promotionGains.get(promotion)[8];
-		hp.innerHTML = "<u>"+currentHP+"</u>";
-		atk.innerHTML = "<u>"+currentATK+"</u>";
-		skl.innerHTML = "<u>"+currentSKL+"</u>";
-		spd.innerHTML = "<u>"+currentSPD+"</u>";
-		lck.innerHTML = "<u>"+currentLCK+"</u>";
-		def.innerHTML = "<u>"+currentDEF+"</u>";
-		res.innerHTML = "<u>"+currentRES+"</u>";
-		con.innerHTML = "<u>"+currentCON+"</u>";
-		mov.innerHTML = "<u>"+currentMOV+"</u>";
+		row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
+		let level = row.insertCell(0).innerHTML = "<b>Promotion</b>";
+		let hp = row.insertCell(1).innerHTML = "<u>"+currentHP+"</u>";
+		let atk = row.insertCell(2).innerHTML = "<u>"+currentATK+"</u>";
+		let skl = row.insertCell(3).innerHTML = "<u>"+currentSKL+"</u>";
+		let spd = row.insertCell(4).innerHTML = "<u>"+currentSPD+"</u>";
+		let lck = row.insertCell(5).innerHTML = "<u>"+currentLCK+"</u>";
+		let def = row.insertCell(6).innerHTML = "<u>"+currentDEF+"</u>";
+		let res = row.insertCell(7).innerHTML = "<u>"+currentRES+"</u>";
+		let con = row.insertCell(8).innerHTML = "<u>"+currentCON+"</u>";
+		let mov = row.insertCell(9).innerHTML = "<u>"+currentMOV+"</u>";
 	}
 	let baseLevel = 1;
 	if (promotions.get(char) == "P"){
@@ -972,26 +882,16 @@ function updateFixedTable(){
 	}
 	for (let i = baseLevel-1; i < 19; i++){
 		row = fixedGrowths.insertRow(fixedGrowths.rows.length - 1);
-		let level = row.insertCell(0);
-		let hp = row.insertCell(1);
-		let atk = row.insertCell(2);
-		let skl = row.insertCell(3);
-		let spd = row.insertCell(4);
-		let lck = row.insertCell(5);
-		let def = row.insertCell(6);
-		let res = row.insertCell(7);
-		let con = row.insertCell(8);
-		let mov = row.insertCell(9);
-		level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
-		hp.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"HPgrowth\"></span>";
-		atk.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"ATKgrowth\"></span>";
-		skl.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SKLgrowth\"></span>";
-		spd.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SPDgrowth\"></span>";
-		lck.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"LCKgrowth\"></span>";
-		def.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"DEFgrowth\"></span>";
-		res.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"RESgrowth\"></span>";
-		con.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONgrowth\"></span>";
-		mov.innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVgrowth\"></span>";
+		let level = row.insertCell(0).innerHTML = (i+1).toString() + " → " + (i+2).toString();
+		let hp = row.insertCell(1).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"HPgrowth\"></span>";
+		let atk = row.insertCell(2).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"ATKgrowth\"></span>";
+		let skl = row.insertCell(3).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SKLgrowth\"></span>";
+		let spd = row.insertCell(4).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"SPDgrowth\"></span>";
+		let lck = row.insertCell(5).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"LCKgrowth\"></span>";
+		let def = row.insertCell(6).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"DEFgrowth\"></span>";
+		let res = row.insertCell(7).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"RESgrowth\"></span>";
+		let con = row.insertCell(8).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"CONgrowth\"></span>";
+		let mov = row.insertCell(9).innerHTML = "<span id=\"Plevel"+(i+2).toString()+"MOVgrowth\"></span>";
 		let promotion = promoClassFixed.value + " (" + genders.get(char)+")";
 		if (promotions.get(char) == "T"){
 			promotion = promotion.split(" → ")[1];
@@ -1043,7 +943,7 @@ function updateFixedTable(){
 var displayedHit = document.getElementById("displayedHit");
 var trueHit = document.getElementById("trueHit");
 for (let i = 0; i <= 100; i++){
-	displayedHit.options[i] = new Option(100-i);
+	displayedHit[i] = new Option(100-i);
 }
 displayedHit.selectedIndex = 25;
 updateHit();
@@ -1058,8 +958,8 @@ var bossEXP = document.getElementById("bossEXP");
 var silencerEXP = document.getElementById("silencerEXP");
 var exp = document.getElementById("exp");
 for (let i = 0; i < 40; i++){
-	playerLevel.options[i] = new Option(40-i);
-	enemyLevel.options[i] = new Option(40-i);
+	playerLevel[i] = new Option(40-i);
+	enemyLevel[i] = new Option(40-i);
 }
 playerLevel.selectedIndex = 20;
 enemyLevel.selectedIndex = 20;
@@ -1074,31 +974,31 @@ updateEXP();
 var charAverage = document.getElementById("charAverage");
 var promoLevelAverage = document.getElementById("promoLevelAverage");
 var promoClassAverage = document.getElementById("promoClassAverage");
-for (let i = 0; i < characters.length; i++) {
+for (let i = 0; i < characters.length; i++){
 	if (characters[i] == "LArachel"){
-		charAverage.options[i] = new Option("L'Arachel");
+		charAverage[i] = new Option("L'Arachel");
 	}
 	else {
-		charAverage.options[i] = new Option(characters[i]);
+		charAverage[i] = new Option(characters[i]);
 	}
 }
-for (let i = 20; i >= 10; i--) {
-	promoLevelAverage.options[20-i] = new Option(i);
+for (let i = 20; i >= 10; i--){
+	promoLevelAverage[20-i] = new Option(i);
 }
 updateCharAverage();
 
 var charFixed = document.getElementById("charFixed");
 var promoLevelFixed = document.getElementById("promoLevelFixed");
 var promoClassFixed = document.getElementById("promoClassFixed");
-for (let i = 0; i < characters.length; i++) {
+for (let i = 0; i < characters.length; i++){
 	if (characters[i] == "LArachel"){
-		charFixed.options[i] = new Option("L'Arachel");
+		charFixed[i] = new Option("L'Arachel");
 	}
 	else {
-		charFixed.options[i] = new Option(characters[i]);
+		charFixed[i] = new Option(characters[i]);
 	}
 }
-for (let i = 20; i >= 10; i--) {
-	promoLevelFixed.options[20-i] = new Option(i);
+for (let i = 20; i >= 10; i--){
+	promoLevelFixed[20-i] = new Option(i);
 }
 updateCharFixed();
