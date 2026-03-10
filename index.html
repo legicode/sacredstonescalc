@@ -54,12 +54,16 @@
 				Experience: <b><span id="exp"></span></b><br/>
 			</td></tr>
 
-			<tr><td class="table1">
+			<tr><td class="table">
 				<h2>Average stats</h2>
-				<b>Character:</b> <select id="charAverage" onChange="updateCharAverage()"></select> &nbsp&nbsp
-				<b>Promotion level:</b> <select id="promoLevelAverage" onChange="updateAverageTable()"></select> &nbsp&nbsp
-				<b>Promoted class:</b> <select id="promoClassAverage" onChange="updateAverageTable()"></select><br /><br />
-				<table class="statstable" id="averageGrowths">
+				<b>Character:</b> <select id="character" onChange="updateCharacter()"></select> &nbsp&nbsp
+				<b>Promo level:</b> <select id="promotionLevel" onChange="updateTable()"></select> &nbsp&nbsp
+				<b>Class:</b> <select id="promotionClass" onChange="updateTable()"></select> &nbsp&nbsp
+				<b>Stats:</b> <select id="growthsMode" onChange="updateTable()">
+					<option value="average">Average</option>
+					<option value="fixed">Fixed</option>
+				</select> <br /><br />
+				<table class="statstable" id="growthsTable">
 					<tr>
 						<th class="levels">Level</th>
 						<th>HP</th>
@@ -86,40 +90,6 @@
 					</tr>
 				</table>
 			</td></tr>
-
-			<tr><td class="table2">
-				<h2>Fixed growth level ups</h2>
-				<b>Character:</b> <select id="charFixed" onChange="updateCharFixed()"></select> &nbsp&nbsp
-				<b>Promotion level:</b> <select id="promoLevelFixed" onChange="updateFixedTable()"></select> &nbsp&nbsp
-				<b>Promoted class:</b> <select id="promoClassFixed" onChange="updateFixedTable()"></select><br /><br />
-				<table class="statstable" id="fixedGrowths">
-					<tr>
-						<th class="levels">Level</th>
-						<th>HP</th>
-						<th>Atk</th>
-						<th>Skl</th>
-						<th>Spd</th>
-						<th>Lck</th>
-						<th>Def</th>
-						<th>Res</th>
-						<th class="conmov">Con</th>
-						<th class="conmov">Mov</th>
-					</tr>
-					<tr>
-						<th class="levels">Level</th>
-						<th>HP</th>
-						<th>Atk</th>
-						<th>Skl</th>
-						<th>Spd</th>
-						<th>Lck</th>
-						<th>Def</th>
-						<th>Res</th>
-						<th class="conmov">Con</th>
-						<th class="conmov">Mov</th>
-					</tr>
-				</table>
-			</td></tr>
-
 		</table>
 		<script src="data.js"></script>
 	</body>

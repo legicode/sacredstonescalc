@@ -8,17 +8,20 @@ table{
 	border-collapse: collapse;
 	background-color: #E0D18B;
 }
-td.header, td.subheader, td.intro, td.calculator, td.table1, td.table2, td.table3{
+td.header, td.subheader, td.intro, td.calculator, td.table{
 	border: 12px solid #754C30;
 	border-left-width: 50px;
 	border-right-width: 50px;
 }
+td.header, td.subheader, td.footer{
+	padding: 8px;
+	line-height: 24px;
+}
 td.header{
 	border-top-width: 16px;
 }
-td.header, td.subheader{
-	padding: 8px;
-	line-height: 24px;
+td.footer{
+	border-bottom-width: 16px;
 }
 td.intro{
 	text-align: left;
@@ -26,7 +29,7 @@ td.intro{
 	padding: 25px;
 	line-height: 27px;
 }
-td.calculator, td.table1, td.table2{
+td.calculator, td.table{
 	width: 800px;
 	padding-top: 0px;
 	padding-bottom: 20px;
@@ -39,6 +42,7 @@ th, td{
 	border: 2px solid;
 	text-align: center;
 	padding: 10px;
+	height: 15px;
 	border-color: #593B26;
 }
 th{
