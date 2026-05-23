@@ -379,11 +379,11 @@ const classPromotions = new Map([
 	["Eirika", 			["Great Lord"]],
 	["Seth", 			["Paladin"]],
 	["Franz", 			["Paladin", "Great Knight"]],
-	["Gilliam", 		["General", "Great Knight"]],
+	["Gilliam", 		["Great Knight", "General"]],
 	["Vanessa",			["Wyvern Knight", "Falcoknight"]],
 	["Moulder", 		["Bishop", "Sage"]],
-	["Ross", 			["Fighter → Hero", "Fighter → Warrior", "Pirate → Warrior", "Pirate → Berserker", "Jrnymn 2 → Hero", "Jrnymn 2 → Jrnymn 3"]],
-	["Garcia", 			["Warrior", "Hero"]],
+	["Ross", 			["Pirate → Warrior", "Pirate → Berserker", "Fighter → Hero", "Fighter → Warrior","Jrnymn 2 → Hero", "Jrnymn 2 → Jrnymn 3"]],
+	["Garcia", 			["Hero", "Warrior"]],
 	["Neimi", 			["Ranger", "Sniper"]],
 	["Colm", 			["Rogue", "Assassin"]],
 	["Artur", 			["Bishop", "Sage"]],
@@ -392,7 +392,7 @@ const classPromotions = new Map([
 	["Joshua", 			["Swordmaster", "Assassin"]],
 	["Ephraim", 		["Great Lord"]],
 	["Forde", 			["Paladin", "Great Knight"]],
-	["Kyle", 			["Great Knight", "Paladin"]],
+	["Kyle", 			["Paladin", "Great Knight"]],
 	["Orson (5x)", 		["Paladin"]],
 	["Tana", 			["Falcoknight", "Wyvern Knight"]],
 	["Amelia", 			["Cavalier → Paladin", "Cavalier → Great Knight", "Knight → Great Knight", "Knight → General", "Recruit 2 → Paladin", "Recruit 2 → Recruit 3"]],
@@ -522,10 +522,8 @@ function updateTable(){
 	while (growthsTable.rows.length > 2){
 		growthsTable.deleteRow(1);
 	}
-	if (growthsMode.selectedIndex == 0){
-		capFormat = "b";
-	}
-	else{
+	let capFormat = "b";
+	if (growthsMode.selectedIndex == 1){
 		capFormat = "u";
 	}
 	row = growthsTable.insertRow(1);
@@ -569,7 +567,6 @@ function updateTable(){
 				if (this["current"+stats[j]] < classCaps.get("Unpromoted")[j]){
 					if (growthsMode.selectedIndex == 0){
 						statIncrease = charGrowths.get(char)[j] / 100;
-						statIncrease = Math.round(statIncrease * 100) / 100;
 					}
 					else {
 						statIncrease = Math.round((i+1) * charGrowths.get(char)[j] / 100) - Math.round(i * charGrowths.get(char)[j] / 100);
@@ -638,7 +635,6 @@ function updateTable(){
 				if (this["current"+stats[j]] < classCaps.get("Unpromoted")[j]){
 					if (growthsMode.selectedIndex == 0){
 						statIncrease = charGrowths.get(char)[j] / 100;
-						statIncrease = Math.round(statIncrease * 100) / 100;
 					}
 					else {
 						statIncrease = Math.round((i+1) * charGrowths.get(char)[j] / 100) - Math.round(i * charGrowths.get(char)[j] / 100);
@@ -719,7 +715,7 @@ function updateTable(){
 					statIncrease = Math.round((i+1) * charGrowths.get(char)[j] / 100) - Math.round(i * charGrowths.get(char)[j] / 100);
 				}
 				if (this["current"+stats[j]] + statIncrease > classCaps.get(promotion)[j]){
-					statIncrease = classCaps.get("Unpromoted")[j] - this["current"+stats[j]];
+					statIncrease = classCaps.get(promotion)[j] - this["current"+stats[j]];
 				}
 			}
 			this["current"+stats[j]] += statIncrease;
@@ -771,7 +767,6 @@ bossEXP.checked = false;
 silencerEXP.checked = false;
 updateEXP();
 
-var capFormat = "b";
 var character = document.getElementById("character");
 var promotionLevel = document.getElementById("promotionLevel");
 var promotionClass = document.getElementById("promotionClass");
